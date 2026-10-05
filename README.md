@@ -59,10 +59,21 @@ npm run build
 npm run preview
 ```
 
-### GitHub Pages 等での公開手順
-1. `vite.config.ts` の `base` をリポジトリ名（例: `base: '/boatrace-ai/'`）またはルートに設定します。
-2. `npm run build` を実行すると `dist/` ディレクトリに静的ファイル一式が出力されます。
-3. GitHub Actions または `gh-pages` コマンドで `dist` フォルダを公開ブランチ（`gh-pages`）にプッシュするだけで、Webアプリとして即座に公開できます。
+### GitHub Pages での公開手順（2通りの方法）
+
+#### 方法1：GitHub Actions による自動デプロイ（推奨）
+リポジトリに `.github/workflows/deploy.yml` を追加済みです。
+1. GitHubの対象リポジトリ画面で **Settings > Pages** を開きます。
+2. **Build and deployment > Source** を **「GitHub Actions」** に切り替えます。
+3. コードを push すると、自動的にビルドおよびGitHub Pagesへの公開が完了します。
+
+#### 方法2：/docs フォルダからの公開
+1. GitHubの **Settings > Pages** で **Source** を **「Deploy from a branch」**、フォルダを **「/docs」** に設定します。
+2. `npm run build:docs` を実行すると `docs/` ディレクトリにビルド結果および `.nojekyll` が生成されます。
+3. `docs/` フォルダを git commit & push することで公開されます。
+
+> **※「No such file or directory @ dir_chdir0 - /github/workspace/docs」エラーが出た場合**:
+> GitHub Pagesの設定が「`/docs` フォルダからのデプロイ」になっているにもかかわらず、リポジトリに `docs` フォルダが存在しないために発生します。本リポジトリには `docs/` フォルダおよび `.github/workflows/deploy.yml`（自動デプロイ設定）の両方を同梱しておりますので、リポジトリを push することで直ちにエラーが解消します。
 
 ---
 
