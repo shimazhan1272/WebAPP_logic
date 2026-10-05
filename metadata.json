@@ -1,0 +1,6 @@
+{
+  "name": "ボートレースAI予想",
+  "description": "全24場の出走表・直前展示情報・気象条件から条件付きロジット統計モデルにより各艇の勝率と推奨買い目を算出するボートレースAI予想アプリ",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

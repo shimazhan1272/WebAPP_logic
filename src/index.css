@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .line-through-double {
+    text-decoration-line: line-through;
+    text-decoration-style: double;
+  }
+}
